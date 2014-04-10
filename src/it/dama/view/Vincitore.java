@@ -1,5 +1,6 @@
 package it.dama.view;
 
+import it.dama.controller.TurnoIASmart;
 import it.dama.model.ColorePezzo;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  * 
@@ -117,12 +119,36 @@ public class Vincitore extends JFrame {
 			addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent arg0) {
+					
 					// esegue il reset della scacchiera appartenente al tavolo
 					t.getScacchiera().reset();
+					t.getScacchiera().setBiMa();
+					
+					FileDebug.resetta();
+					
 					// elimino le mosse salvate per UNDO
 					t.undoRemoveAll();
 					t.ridisegna();
 					finestra.setVisible(false);
+
+					if (t.getScacchiera().getColoreIA() == ColorePezzo.BIANCO) {
+						t.getScacchiera().setTurnoNero(true);
+						t.cambiaCursore();
+						
+						Timer timer = new Timer(2000, new ActionListener() {
+							public void actionPerformed(ActionEvent arg0) {
+
+								new TurnoIASmart(t);
+
+								// gioca l'IA in base alla difficoltà
+								t.ridisegna();
+								t.getScacchiera().setTurnoNero(false);
+								t.cambiaCursore();
+							}
+						});
+						timer.setRepeats(false);
+						timer.start();
+					}
 				}
 			});
 		}

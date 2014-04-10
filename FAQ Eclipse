@@ -1,0 +1,28 @@
+==== Problema menu di eclipse (Ubuntu 13.10) ====
+Bisogna editare il file eclipse.desktop e correggere il parametro Exec:
+1) sudo gedit /usr/share/applications/eclipse.desktop
+2) Trovare "Exec" e scrivere "Exec=env UBUNTU_MENUPROXY=0 eclipse"
+3) Salvare ed avviare Eclipse.
+
+
+==== Installazione Marketplace ====
+Seguire i seguenti passaggi:
+1) Help-> Install new software
+2) Inserire "http://download.eclipse.org/releases/indigo/" come url
+3) Cercare "marketplace" ed installare
+4) Help-> Eclipse Marketplace. Installato.
+
+
+==== Risultati bianchi in "Install Software" ====
+Seguire i seguenti passaggi:
+1) Chiudere eclipse se aperto
+2) Eliminare il file ${TUA_CARTELLA_WORKSPACE}/.metadata/.plugins/org.eclipse.equinox.p2.ui/dialog_settings.xml
+3) Avviare Eclipse. Fine.
+
+
+==== Significato di alcuni comandi Team ====
+Commit: prepara il commit da caricare
+Push to Upstream: carica i commit in sospeso nella repo
+Fetch from Upstream: legge i commit online ancora non scaricati
+Pull: scarica i commit ed esegue il merge
+(Consiglio d'uso: usare Commit... + Push per caricare e solo Pull per scaricare)

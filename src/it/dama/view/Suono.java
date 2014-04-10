@@ -52,9 +52,9 @@ public class Suono extends Thread {
 				FileDebug.accoda("-- (Suono) UnsupportedAudioFileException | IOException 2");
 				e.printStackTrace();
 			}
+			if(clip.isRunning())
+				clip.stop();
 			clip.start();
 			clip.drain();
-			clip.close();
-		
 	}
 }

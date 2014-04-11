@@ -79,7 +79,7 @@ public class CasellaAzione extends JButton {
 					FileDebug.accoda(s.toString());
 					s.setSelezionata(null);
 
-					//new Suono();
+					new Suono();
 					
 					// scalo le tracce se le stavo seguendo
 					if (s.getTracce() != null) {

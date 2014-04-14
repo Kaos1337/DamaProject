@@ -51,7 +51,7 @@ public class Vincitore extends JFrame {
 		// if che permette di stampare il vincitore se c'è stata l'inversione
 		// dei colori
 		if (t.getScacchiera().getColoreIA() == ColorePezzo.BIANCO)
-			c = (c == ColorePezzo.BIANCO ? ColorePezzo.NERO : c);
+			c = (c == ColorePezzo.BIANCO ? ColorePezzo.NERO : ColorePezzo.BIANCO);
 
 		// creo la scritta che indica il vincitore
 		JLabel vince = new Vince(c, Gioco.livello);

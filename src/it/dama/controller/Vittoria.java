@@ -30,10 +30,7 @@ public class Vittoria {
 		this.s = s;
 		if (!puoMuovere()) {
 			s.setVittoria();
-			if(s.getColoreIA() == ColorePezzo.BIANCO && c == ColorePezzo.NERO)
-				new Vincitore(ColorePezzo.BIANCO, t);
-			else
-				new Vincitore(c, t);
+			new Vincitore(c, t);
 		}
 	}
 
